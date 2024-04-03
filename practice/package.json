@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./02.routing.js",
+    "dev:1": "nodemon ./01.http.js",
+    "dev:2": "nodemon ./02.routing.js",
     "lint": "eslint --fix . --ext .js"
   },
   "keywords": [

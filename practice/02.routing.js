@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 const http = require('node:http');
 const dittoJSON = require('./pokemon/ditto.json');
 
@@ -19,8 +20,21 @@ const processRequest = (req, res) => {
       }
     case 'POST':
       switch (url) {
-        case 'pokemon': {
-          // const body = '';
+        case '/pokemon': {
+          let body = '';
+          // escuchar el evento data
+          req.on('data', (chunk) => {
+            body += chunk.toString();
+          });
+          req.on('end', () => {
+            const data = JSON.parse(body);
+            // llamar a una base de datos para guardar la info
+            res.writeHead(201, {
+              'Content-Type': 'application/json; charset=utf-8',
+            });
+            data.timestamp = Date.now();
+            res.end(JSON.stringify(data));
+          });
           break;
         }
         default:
@@ -34,5 +48,5 @@ const processRequest = (req, res) => {
 const server = http.createServer(processRequest);
 
 server.listen(desiredPort, () => {
-  console.log(`Aplication listening on http://localhost:${desiredPort}`);
+  console.log(`Aplication listening on port http://localhost:${desiredPort}`);
 });

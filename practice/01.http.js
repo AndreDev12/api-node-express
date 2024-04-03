@@ -10,7 +10,7 @@ const server = http.createServer((req, res) => {
     res.statusCode = 200;
     res.end('<h1>Bienvenido a mi página de inicio</h1>');
   } else if (req.url === '/imagen-super-bonita') {
-    fs.readFile('./sunglass.jpg', (err, data) => {
+    fs.readFile('./assets/sunglass.jpg', (err, data) => {
       if (err) {
         res.statusCode = 500;
         res.end('<h1>500 Internal Server Error</h1>');
