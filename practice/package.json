@@ -1,11 +1,12 @@
 {
   "name": "api-node-express",
   "version": "1.0.0",
-  "description": "",
+  "description": "Ejercicios con Node.js y Express",
   "main": "index.js",
   "scripts": {
     "dev:1": "nodemon ./01.http.js",
     "dev:2": "nodemon ./02.routing.js",
+    "dev:3": "node --watch ./03.express.js",
     "lint": "eslint --fix . --ext .js"
   },
   "keywords": [
@@ -22,5 +23,8 @@
     "eslint-plugin-n": "^16.6.2",
     "eslint-plugin-promise": "^6.1.1",
     "nodemon": "^3.1.0"
+  },
+  "dependencies": {
+    "express": "4.19.2"
   }
 }
